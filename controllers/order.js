@@ -6,10 +6,10 @@ import sendGridTransport from 'nodemailer-sendgrid-transport';
 import formatPrice from '../util/format-price.js';
 import sgMail from '@sendgrid/mail';
 
-// sgMail.setApiKey(process.env.SEND_GRID_API);
-sgMail.setApiKey(
-  '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'
-);
+sgMail.setApiKey(process.env.SENDGRID_API_KEY);
+// sgMail.setApiKey(
+//   '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'
+// );
 
 // const transporter = nodemailer.createTransport(
 //   sendGridTransport({
