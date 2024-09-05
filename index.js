@@ -44,8 +44,8 @@ app.use(
     origin: [
       'http://localhost:3000',
       'http://localhost:3001',
-      'https://njs-asm3-client-mtlz.onrender.com',
-      'https://njs-asm3-admin-862k.onrender.com',
+      'https://oh-kraft.netlify.app',
+      'https://ohkraft-admin.onrender.com',
     ],
     credentials: true,
   })
