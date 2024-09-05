@@ -1,20 +1,11 @@
 import Order from '../models/order.js';
 import Cart from '../models/cart.js';
 import Product from '../models/product.js';
-import nodemailer from 'nodemailer';
-import sendGridTransport from 'nodemailer-sendgrid-transport';
 import formatPrice from '../util/format-price.js';
 import sgMail from '@sendgrid/mail';
 
 sgMail.setApiKey(process.env.SENDGRID_API_KEY);
 
-// const transporter = nodemailer.createTransport(
-//   sendGridTransport({
-//     auth: {
-//       api_key: process.env.SEND_GRID_API,
-//     },
-//   })
-// );
 // Tao order moi
 export const createOrder = async (req, res, next) => {
   try {
@@ -92,32 +83,6 @@ export const createOrder = async (req, res, next) => {
       </div>
       `,
     };
-    // return transporter.sendMail({
-    //   to: email,
-    //   from: 'hoagbao.dinh@gmail.com',
-    //   subject: 'Order Information',
-    //   html: `
-    //   <div style="background-color: black; color:white!important; padding: 10px 20px">
-    //     <h1 style="color:white">Xin chào ${fullname}</h1>
-    //     <h4 style="color:white">Phone: ${phone}</h4>
-    //     <h4>Address: ${address}</h4>
-    //     <table style="width:100%; border: 1px solid ;color:white">
-    //       <tr>
-    //         <th style="border: 1px solid">Tên Sản Phẩm</th>
-    //         <th style="border: 1px solid">Hình Ảnh</th>
-    //         <th style="border: 1px solid">Giá</th>
-    //         <th style="border: 1px solid">Số lượng</th>
-    //         <th style="border: 1px solid">Thành tiền</th>
-    //       </tr>
-    //       ${tableRow}
-    //     </table>
-    //     <h1>Tổng Thanh Toán:</h1>
-    //     <h1>${formatPrice(totalPrice)}</h1>
-    //     <br>
-    //     <h1>Cảm ơn bạn!</h1>
-    //   </div>
-    //   `,
-    // });
     return sgMail
       .send(msg)
       .then(() => {
